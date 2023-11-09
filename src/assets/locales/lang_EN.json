@@ -1,0 +1,15 @@
+
+{
+    "en": {
+        "translation": {
+            "about": "About me",
+            "skills": "Skills",
+            "timeline": "timeline",
+            "gallery": "gallery",
+            "error": {
+                "title": "Something went wrong",
+                "description": "Page was not found or is under development"
+            }
+        }
+    }
+}

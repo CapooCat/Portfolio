@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-color: 215deg;
+    --secondary-color: 188deg;
+  }
+}
+
+button:focus,
+a:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  @apply text-primary-dark dark:text-white font-sans;
+}
+
+.bg-main {
+  @apply bg-gradient-to-r from-primary to-secondary dark:from-primary dark:to-secondary;
+}
+
+.bg-main-transparent {
+  @apply bg-primary/10 text-primary;
+}
+
+.bg-main-header {
+  @apply bg-gradient-to-r from-primary/75 to-secondary/75 dark:from-black/5 dark:to-black/5;
+}
+
+.after\:bg-main {
+  &:after {
+    @extend .bg-main;
+  }
+}
+
+.title {
+  &:after {
+    content: "";
+    width: 120px;
+    height: 4px;
+    @apply rounded-xl;
+    @apply bg-gradient-to-r from-primary to-secondary;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+header {
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    @apply backdrop-blur-[5px];
+  }
+}
+
+.link-hover {
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 3px;
+    bottom: 0;
+    @apply rounded-xl;
+    transition: 150ms;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+
+  &.panel:after {
+    bottom: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    &.panel {
+      transition: 150ms background-color;
+      &:after {
+        content: none;
+      }
+
+      &:hover {
+        @apply bg-gray-400/20;
+      }
+    }
+  }
+}
+
+.inset {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.tab > input[type="radio"] {
+  & ~ div {
+    &:after {
+      content: "";
+      transition: 300ms;
+      width: 100%;
+      position: absolute;
+      border-radius: 100%;
+      @apply bg-gradient-to-r;
+      @extend .bg-main;
+      @extend .inset;
+      z-index: -1;
+      transform: translateY(100%);
+    }
+  }
+
+  &:checked {
+    & ~ div {
+      color: white;
+      &:after {
+        transform: translateY(0%) scale(2);
+      }
+    }
+  }
+}
+
+.timeline {
+  &:after {
+    content: "";
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    z-index: -1;
+    @apply rounded-xl bg-gray-400/30;
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 80vw;
+  @apply z-10 bg-white dark:bg-primary-dark;
+
+  @media (min-width: 1024px) {
+    position: initial;
+    height: 100%;
+    width: auto;
+    @apply z-0 bg-transparent dark:bg-transparent border-none;
+    transform: translate(0, 0) !important;
+  }
+}
+
+.disable-scroll {
+  overflow: hidden;
+}
+
+.drag-area {
+  position: fixed;
+  left: 0;
+  height: calc((100vh - 4em) - 2em) !important;
+  bottom: 0.75em;
+}

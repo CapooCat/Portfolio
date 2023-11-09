@@ -1,0 +1,14 @@
+{
+    "vi": {
+        "translation": {
+            "about": "Về tôi",
+            "skills": "Kỹ năng",
+            "timeline": "Dòng thời gian",
+            "gallery": "Thư viện",
+            "error": {
+                "title": "Đã xảy ra sự cố",
+                "description": "Trang này không tồn tại hoặc đang trong quá trình phát triển"
+            }
+        }
+    }
+}
