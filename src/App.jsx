@@ -18,8 +18,8 @@ function App() {
     theme.loadTheme();
   }, []);
 
-  const Home = lazy(() => import("./pages/Home"));
-  const NotFound = lazy(() => import("./pages/NotFound"));
+  const Home = lazy(() => import("./pages/Home/Index"));
+  const NotFound = lazy(() => import("./pages/NotFound/Index"));
 
   const router = createBrowserRouter([
     {
