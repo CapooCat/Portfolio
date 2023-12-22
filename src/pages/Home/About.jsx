@@ -20,11 +20,11 @@ function About() {
 
       <ul className="order-2 rounded-xl border-[1px] border-gray-400/30 p-5 lg:order-1">
         <li className="break-words border-b-[1px] border-gray-400/30 pb-5 font-light tracking-wide">
-          A Web Developer with over 2 years of experience with Javascript,
-          ReactJS, Tailwind, and T-SQL. I'm proficient in working with ERP
-          projects and have strong experience in building up a fully functional
-          website from Figma design/wireframe. In addition, I'm also familiar
-          with WebSocket and C# .NET Web API development.
+          A Web Developer with 2 years of experience with Javascript, C#,
+          Tailwind, T-SQL, and 1 year with ReactJS. I'm Proficient in working
+          with ERP projects and have strong experience in building up a fully
+          functional website from Figma design/wireframe. In addition, I'm also
+          familiar with WebSocket and .NET Web API development.
         </li>
         {personal.map((item, index) => (
           <li

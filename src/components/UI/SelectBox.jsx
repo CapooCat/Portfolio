@@ -21,19 +21,9 @@ function SelectBox({
     setIsOpen(false);
   };
 
-  const closeListOnOutFocus = (e) =>
-    !thisComponent.current.contains(e.target) && setIsOpen(false);
-
   useEffect(() => {
     onChangeFn(selectedValue);
   }, [selectedValue]);
-
-  useEffect(() => {
-    window.addEventListener("click", closeListOnOutFocus);
-    return () => {
-      window.removeEventListener("click", closeListOnOutFocus);
-    };
-  }, []);
 
   const options = useMemo(() => {
     return (
@@ -55,6 +45,7 @@ function SelectBox({
   return (
     <div
       ref={thisComponent}
+      onMouseLeave={() => setIsOpen(false)}
       className={`${customClass} relative h-12 w-60 place-self-center rounded-xl border-[1px] border-gray-400/30 bg-white/20 dark:bg-black/30`}
     >
       <input defaultValue={selectedValue} key={selectedValue} hidden />
@@ -74,15 +65,17 @@ function SelectBox({
         </motion.div>
       </button>
 
-      <motion.ul
-        variants={animate.slideDown}
-        initial="initial"
-        animate={isOpen ? "animate" : "initial"}
-        className="absolute top-[100%] z-10 mt-4 w-full overflow-hidden
+      <div className="absolute right-0 top-[100%] z-10 w-full">
+        <motion.ul
+          variants={animate.slideDown}
+          initial="initial"
+          animate={isOpen ? "animate" : "initial"}
+          className="z-10 mt-4 w-full overflow-hidden
                  rounded-xl border-[1px] border-gray-400/30 bg-white/75 text-primary-dark backdrop-blur-md dark:bg-black/30 dark:text-inherit"
-      >
-        {options}
-      </motion.ul>
+        >
+          {options}
+        </motion.ul>
+      </div>
     </div>
   );
 }

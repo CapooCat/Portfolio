@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { useAnimationEffect } from "../../hooks/Animation";
-import { isMobileDevice } from "../../utils/MobileDevice";
 
 import useFetch from "../../hooks/Fetch";
-import Loading from "../UI/Loading";
 import Icon from "../UI/Icon";
+import Dropdown from "../UI/Dropdown";
+import Loading from "../UI/Loading";
 
 const options = {
   url: "https://api.github.com/users/CapooCat/repos",
@@ -13,11 +12,8 @@ const options = {
 };
 
 function ProjectTab() {
-  const [forceVisible, setForceVisible] = useState("initial");
-  const { slideDown, slideToLeft, rotate } = useAnimationEffect("selectBox");
-  const { isLoading, error, data } = useFetch(options, "projects");
-
-  const Project = (prop, key) => {
+  const Item = (prop, key) => {
+    const { slideToLeft } = useAnimationEffect("selectBox");
     const created_date = new Date(prop.created_at);
 
     return (
@@ -41,44 +37,21 @@ function ProjectTab() {
     );
   };
 
-  function toggleVisible() {
-    if (isMobileDevice()) {
-      forceVisible == "animate"
-        ? setForceVisible("initial")
-        : setForceVisible("animate");
-    }
-  }
+  const Render = () => {
+    const { isLoading, data } = useFetch(options, { cache: "projects" });
 
-  return (
-    <motion.div
-      onClick={() => toggleVisible()}
-      initial="initial"
-      whileHover="animate"
-      animate="initial"
-      className="relative mt-2 block gap-1 rounded-xl px-3 py-3 after:bg-white lg:mt-0 lg:flex lg:p-0"
-    >
-      <button className="flex h-full w-full items-center gap-1">
-        <Icon icon="brand-github" size={18} className="mr-1" />
-        Projects
-        <motion.div variants={rotate} className="mt-1">
-          <Icon icon="chevron-down" size={18} />
-        </motion.div>
-      </button>
+    return (
+      <>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          data.map((item, index) => <Item {...item} key={index} />)
+        )}
+      </>
+    );
+  };
 
-      <div className="right-0 top-[100%] z-10 lg:absolute lg:pt-2">
-        <motion.div
-          variants={slideDown}
-          className="relative mt-5 max-h-[400px] min-h-[200px] w-full gap-2 overflow-y-auto overflow-x-hidden rounded-xl border-[1px] border-gray-400/30 bg-white/75 p-2 backdrop-blur-md dark:bg-black/30 lg:mt-0 lg:w-[500px] lg:grid-cols-2"
-        >
-          {isLoading ? (
-            <Loading />
-          ) : (
-            data.map((item, index) => <Project {...item} key={index} />)
-          )}
-        </motion.div>
-      </div>
-    </motion.div>
-  );
+  return <Dropdown content={<Render />} />;
 }
 
 export default ProjectTab;

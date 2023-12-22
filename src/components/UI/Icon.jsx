@@ -1,4 +1,4 @@
-import * as Icons from "@tabler/icons-react";
+import * as Icons from "@tabler/icons-react"; //not a good way
 
 function Icon({ icon, size, className }) {
   if (!icon) return "";
