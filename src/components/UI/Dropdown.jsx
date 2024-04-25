@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useAnimationEffect } from "../../hooks/Animation";
 import Icon from "./Icon";
 
-function Dropdown({ content }) {
+function Dropdown({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
   const { slideDown, rotate } = useAnimationEffect("selectBox");
   const thisComponent = useRef(null);
@@ -23,7 +23,7 @@ function Dropdown({ content }) {
         onClick={() => toggleList()}
       >
         <Icon icon="brand-github" size={18} className="mr-1" />
-        Projects
+        {title}
         <motion.div variants={rotate} className="mt-1">
           <Icon icon="chevron-down" size={18} />
         </motion.div>

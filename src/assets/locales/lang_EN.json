@@ -1,15 +1,29 @@
-
 {
-    "en": {
-        "translation": {
-            "about": "About me",
-            "skills": "Skills",
-            "timeline": "timeline",
-            "gallery": "gallery",
-            "error": {
-                "title": "Something went wrong",
-                "description": "Page was not found or is under development"
-            }
-        }
+  "en": {
+    "translation": {
+      "about": {
+        "title": "About me",
+        "fullname": "Full name",
+        "birthday": "Birthday",
+        "email": "Email",
+        "phone": "Phone Number",
+        "location": "Location"
+      },
+      "skills": "Skills",
+      "timeline": "timeline",
+      "gallery": "gallery",
+
+      "header": {
+        "home": "Home",
+        "gallery": "Gallery",
+        "resources": "Resource",
+        "projects": "Projects"
+      },
+
+      "error": {
+        "title": "Something went wrong",
+        "description": "Page was not found or is under development"
+      }
     }
+  }
 }

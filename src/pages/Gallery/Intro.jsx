@@ -18,24 +18,18 @@ function Intro() {
         whileInView="animate"
         className="z-10 grid h-[80%] grid-cols-1 content-center px-4 text-center lg:p-0"
       >
-        <motion.img
-          variants={useAnimationEffect("fadeIn")}
-          src={avatar}
-          className="mb-10 h-[250px] w-[250px] place-self-center rounded-full border-2 p-3"
-          loading="lazy"
-        />
         <motion.h1
           variants={useAnimationEffect("slideUp")}
-          className="place-self-center text-5xl font-bold"
+          className="place-self-center pb-10 text-5xl font-bold"
         >
-          Tran Thai Dat
+          Gallery
         </motion.h1>
         <motion.span
           variants={useAnimationEffect("slideUp")}
-          className="place-self-center text-lg leading-8"
+          className="text max-w-[500px] place-self-center text-lg leading-8"
         >
-          I'm a web developer
-          <Cursor />
+          Explore the beauty of Vietnam, where every images is a doorway to a
+          new perspectives
         </motion.span>
       </motion.div>
 

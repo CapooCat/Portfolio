@@ -1,5 +1,5 @@
-import Icon from "../../components/UI/Icon";
-import Logo from "../../components/UI/Logo";
+import Icon from "../UI/Icon";
+import Logo from "../UI/Logo";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

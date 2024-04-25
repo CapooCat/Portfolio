@@ -1,21 +1,23 @@
-import Icon from "../../components/UI/Icon";
-import Logo from "../../components/UI/Logo";
+import Icon from "../UI/Icon";
+import Logo from "../UI/Logo";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useAnimationEffect } from "../../hooks/Animation";
 import { Link } from "react-router-dom";
 
-import ThemeSwitcher from "../../components/Header/ThemeSwitcher";
-import LanguageSwitcher from "../../components/Header/LanguageSwitcher";
-import ProjectTab from "../../components/Header/ProjectTab";
+import ThemeSwitcher from "../Header/ThemeSwitcher";
+import LanguageSwitcher from "../Header/LanguageSwitcher";
+import ProjectTab from "../Header/ProjectTab";
+import { useTranslation } from "react-i18next";
 
 function Header() {
   const [showPanel, setShowPanel] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const left_menu = [
-    { title: "Home", icon: "book-2", href: "/" },
-    { title: "Gallery", icon: "photo-hexagon", href: "/gallery" },
-    { title: "Resources", icon: "stack-2", href: "/resources" },
+    { title: t("header.home"), icon: "book-2", href: "/" },
+    { title: t("header.gallery"), icon: "photo-hexagon", href: "/gallery" },
+    { title: t("header.resources"), icon: "stack-2", href: "/resources" },
   ];
 
   return (

@@ -1,14 +1,29 @@
 {
-    "vi": {
-        "translation": {
-            "about": "Về tôi",
-            "skills": "Kỹ năng",
-            "timeline": "Dòng thời gian",
-            "gallery": "Thư viện",
-            "error": {
-                "title": "Đã xảy ra sự cố",
-                "description": "Trang này không tồn tại hoặc đang trong quá trình phát triển"
-            }
-        }
+  "vi": {
+    "translation": {
+      "about": {
+        "title": "Về tôi",
+        "fullname": "Họ tên",
+        "birthday": "Ngày sinh",
+        "email": "Email",
+        "phone": "Số điện thoại",
+        "location": "Địa điểm"
+      },
+      "skills": "Kỹ năng",
+      "timeline": "Dòng thời gian",
+      "gallery": "Thư viện",
+
+      "header": {
+        "home": "Trang chủ",
+        "gallery": "Thư viện",
+        "resources": "Tư liệu",
+        "projects": "Dự án"
+      },
+
+      "error": {
+        "title": "Đã xảy ra sự cố",
+        "description": "Trang này không tồn tại hoặc đang trong quá trình phát triển"
+      }
     }
+  }
 }

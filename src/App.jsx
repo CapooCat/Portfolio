@@ -1,16 +1,8 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-  useRouteError,
-} from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
-import Loading from "./components/UI/Loading";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useEffect, useLayoutEffect } from "react";
 import Theme from "./utils/Theme";
 import "./utils/Language";
-
-const ErrorBoundary = () => {
-  const error = useRouteError();
-};
+import route from "./pages/route";
 
 function App() {
   useEffect(() => {
@@ -18,33 +10,7 @@ function App() {
     theme.loadTheme();
   }, []);
 
-  const Home = lazy(() => import("./pages/Home/Index"));
-  const NotFound = lazy(() => import("./pages/NotFound/Index"));
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <Suspense fallback={<Loading />}>
-          <Home />
-        </Suspense>
-      ),
-      errorElement: (
-        <Suspense fallback={<Loading />}>
-          <ErrorBoundary />
-        </Suspense>
-      ),
-    },
-
-    {
-      path: "*",
-      element: (
-        <Suspense fallback={<Loading />}>
-          <NotFound />
-        </Suspense>
-      ),
-    },
-  ]);
+  const router = createBrowserRouter(route());
 
   return <RouterProvider router={router} />;
 }

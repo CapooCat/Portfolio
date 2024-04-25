@@ -5,6 +5,7 @@ import useFetch from "../../hooks/Fetch";
 import Icon from "../UI/Icon";
 import Dropdown from "../UI/Dropdown";
 import Loading from "../UI/Loading";
+import { useTranslation } from "react-i18next";
 
 const options = {
   url: "https://api.github.com/users/CapooCat/repos",
@@ -12,6 +13,8 @@ const options = {
 };
 
 function ProjectTab() {
+  const { t, i18n } = useTranslation();
+
   const Item = (prop, key) => {
     const { slideToLeft } = useAnimationEffect("selectBox");
     const created_date = new Date(prop.created_at);
@@ -51,7 +54,7 @@ function ProjectTab() {
     );
   };
 
-  return <Dropdown content={<Render />} />;
+  return <Dropdown title={t("header.projects")} content={<Render />} />;
 }
 
 export default ProjectTab;
